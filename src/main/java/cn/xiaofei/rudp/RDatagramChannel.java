@@ -436,7 +436,6 @@ public class RDatagramChannel {
         timer.scheduleAtFixedRate(() -> {
             if (datagramMap.isEmpty()) return;
             for (RDatagram rDatagram : datagramMap.values()) {
-                System.out.println("package total: " + datagramMap.values().size() + " package type: " + rDatagram.getType() + " seq: " + rDatagram.getSeq());
                 if (rDatagram.sendTimes >= retryTime) {
                     //超时，发送失败
                     SendTask sendTask = sendTasks.get(sendId);
